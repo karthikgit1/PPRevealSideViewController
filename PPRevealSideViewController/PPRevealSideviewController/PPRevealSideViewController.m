@@ -1211,7 +1211,7 @@ const CGFloat        PPRevealSideNavigationControllerPopTreshold = 100.0;
     // See if there is a controller or not for the direction.
     UIViewController *newVC = [_viewControllers objectForKey:[NSNumber numberWithInt:_currentPanDirection]];
     if (disabled || !newVC) {
-        UINavigationController* navController;
+        /*UINavigationController* navController;
         if ([self.rootViewController isKindOfClass:UINavigationController.class]) {
             navController = (UINavigationController *)self.rootViewController;
         } else {
@@ -1254,7 +1254,7 @@ const CGFloat        PPRevealSideNavigationControllerPopTreshold = 100.0;
             // We use the bounce animation
             PPRSLog(@"****** No controller to push ****** Think to preload controller ! ******");
             [self pushOldViewControllerOnDirection:_currentPanDirection animated:YES];
-        }
+        }*/
         
         // Little trick to cancel the gesture. Otherwise, as long as we pan, we continue to pass here ...
         panGesture.enabled = NO;
