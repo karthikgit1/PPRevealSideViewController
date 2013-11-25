@@ -1462,6 +1462,21 @@ const CGFloat        PPRevealSideNavigationControllerPopTreshold = 100.0;
 }
 
 
+#pragma mark - Status bar
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return self.rootViewController.preferredStatusBarStyle;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return self.rootViewController.prefersStatusBarHidden;
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    return self.rootViewController.preferredStatusBarUpdateAnimation;
+}
+
+
 #pragma mark - Memory management
 
 - (void)viewWillUnload {
