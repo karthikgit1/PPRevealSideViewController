@@ -324,6 +324,10 @@ const CGFloat        PPRevealSideNavigationControllerPopTreshold = 100.0;
                             options:options
                          animations:openAnimBlock
                          completion:^(BOOL finished) {
+                             if (!finished) {
+                                 _animationInProgress = NO;
+                                 return;
+                             }
                              if (self.canCrossOffsets) {
                                  // then we come to normal
                                  [UIView animateWithDuration:animationTime * PPRevealSideOpenAnimationTimeBouncingRatio
@@ -358,7 +362,7 @@ const CGFloat        PPRevealSideNavigationControllerPopTreshold = 100.0;
 
 - (void) popViewControllerWithNewCenterController:(UIViewController *)centerController animated:(BOOL)animated andPresentNewController:(UIViewController *)controllerToPush withDirection:(PPRevealSideDirection)direction andOffset:(CGFloat)offset {
     if (_animationInProgress) {
-        return;
+        [_rootViewController.view.layer removeAllAnimations];
     }
     
     [self informDelegateWithOptionalSelector:@selector(pprevealSideViewController:willPopToController:) withParam:centerController];
